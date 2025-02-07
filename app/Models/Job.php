@@ -9,12 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Job extends Model
 {
-    /** @use HasFactory<\Database\Factories\JobFactory> */
     use HasFactory;
 
     public function tag(string $name): void
     {
-        $tag = Tag::firstOrCreate(['name' => $name]);
+        $tag = Tag::firstOrCreate(['name' => strtolower($name)]);
 
         $this->tags()->attach($tag);
     }
@@ -24,8 +23,8 @@ class Job extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function user(): BelongsTo
+    public function employer(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Employer::class);
     }
 }
