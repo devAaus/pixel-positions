@@ -5,21 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Positions</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div>
-        <nav>
+<body class="bg-[#060606] text-white font-sans max-w-7xl mx-auto">
+    <div class="px-10">
+        <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
-                <a href="">
+                <a href="/">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="">
                 </a>
             </div>
-            <div>links</div>
-            <div>post a job</div>
+
+            <div class="space-x-6 font-bold">
+                <a href="">Jobs</a>
+                <a href="">Careers</a>
+                <a href="">Salaries</a>
+                <a href="">Companies</a>
+            </div>
+
+            <div>
+                <a href="">Post a Job</a>
+            </div>
         </nav>
 
-        <main>
+        <main class="mt-10 max-w-5xl mx-auto">
             {{ $slot }}
         </main>
     </div>
