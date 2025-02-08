@@ -1,7 +1,10 @@
 @props(['job'])
 
 <x-panel class="flex flex-col text-center">
-    <div class="self-start text-sm">{{ $job->employer->name }}</div>
+    <div class="flex justify-between">
+        <div class="self-start text-sm">{{ $job->employer->name }}</div>
+        <x-employer-logo :employer="$job->employer" :width="42" :height="42" />
+    </div>
 
     <div class="py-8">
         <h3 class=" text-xl font-bold transition-colors duration-300">
@@ -19,7 +22,5 @@
                 <x-tag :$tag size="small" />
             @endforeach
         </div>
-
-        <x-employer-logo :employer="$job->employer" :width="42" />
     </div>
 </x-panel>
